@@ -24,5 +24,5 @@ macOS/Linux: `source venv/bin/activate`
 - ejecuta el siguiente comando:
 `python BDD1-Ramoscelli\proyectoFinal\menu_principal.py`
 
-### Paso 6: Testea el programa
+### Paso 7: Testea el programa
 - Se desarrollo el programa para que sea intuitivo, realiza las pruebas que desees
