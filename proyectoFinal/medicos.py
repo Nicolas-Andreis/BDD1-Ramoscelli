@@ -22,16 +22,16 @@ def agregar_medico(nombre, especialidad, telefono):
 
 
 
-def actualizar_medico(id_medico, nuevo_nombre, nueva_especialidad):
+def actualizar_medico(id_medico, nuevo_nombre, nueva_especialidad, nuevo_telefono):
     connection = connect_to_db()
     if connection:
         try:
             cursor = connection.cursor()
             cursor.execute("""
                 UPDATE Medicos
-                SET nombreMedico = %s, especialidad = %s
+                SET nombreMedico = %s, especialidad = %s, telefonoMedico = %s
                 WHERE idMedico = %s
-            """, (nuevo_nombre, nueva_especialidad, id_medico))
+            """, (nuevo_nombre, nueva_especialidad, nuevo_telefono, id_medico))
             connection.commit()
             print("Médico actualizado exitosamente.")
         except Exception as e:
@@ -39,18 +39,19 @@ def actualizar_medico(id_medico, nuevo_nombre, nueva_especialidad):
         finally:
             connection.close()
 
+
 def ver_detalles_medico():
     connection = connect_to_db()
     if connection:
         try:
             cursor = connection.cursor()
             cursor.execute("""
-                SELECT idMedico, nombreMedico, especialidad
+                SELECT idMedico, nombreMedico, especialidad, telefonoMedico
                 FROM Medicos
             """)
             print("\nDetalles de Médicos:")
             for row in cursor.fetchall():
-                print(f"ID: {row[0]}, Nombre: {row[1]}, Especialidad: {row[2]}")
+                print(f"ID: {row[0]}, Nombre: {row[1]}, Especialidad: {row[2]}, Telefono: {row[3]}")
         except Exception as e:
             print(f"Error al obtener detalles de médicos: {e}")
         finally:

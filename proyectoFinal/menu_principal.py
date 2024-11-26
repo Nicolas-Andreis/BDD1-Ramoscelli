@@ -50,7 +50,8 @@ def menu_medicos():
             id_medico = int(input("Ingrese el ID del médico a actualizar: "))
             nuevo_nombre = input("Ingrese el nuevo nombre del médico: ")
             nueva_especialidad = input("Ingrese la nueva especialidad del médico: ")
-            actualizar_medico(id_medico, nuevo_nombre, nueva_especialidad)
+            nuevo_telefono = input("Ingrese el nuevo telefono del médico: ")
+            actualizar_medico(id_medico, nuevo_nombre, nueva_especialidad, nuevo_telefono)
         elif opcion == "4":
             break
         else:
